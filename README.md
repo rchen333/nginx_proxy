@@ -13,6 +13,440 @@ You either want to:
 
 The Docker daemon can be configured that way that it routes all traffic through an proxy. This proxy can be an Nginx which is configured as forwarding proxying.
 
+## Google search query
+
+q=query+goes+here
+
+The query string. Words are separated by + signs.
+
+Everything from here on in is preceded by an & sign, as it's tagged on to the end. Here's where (if you have no girlfriend), things get interesting...
+
+as_epq=query+goes+here
+
+Results must include the query, in the word order displayed.
+
+Shows as "query goes here"
+
+as_oq="query+string"+goes+here
+
+Results must include one or more of the words in this string. Basically, it's like a more advanced version of the one above, using an "or" filter. Thus, every result must have the main initial query, and one or more of the sets of terms in these strings.
+
+Shows as "query string" OR goes OR here
+
+as_eq=don't+include+these+words
+
+Results must NOT include any words in this string.
+
+Shows as -don't -include -these -words
+
+num=xx
+
+Controls the number of results shown. Must be a numeric value, and can be anything up to 100. Doesn't work with fractions. I've tried.
+
+as_filetype=extension
+
+Only returns results that end in .extension. Currently supports any input. Try it - make a file with a random extension, get it indexed and do a search. Also shows that as long as it validates to something, Google can and will index it. Something to think about...
+
+Shows as filetype:extension
+
+as_sitesearch=Example Domain
+
+Limits results to just the site you choose.
+
+Shows as site:example.com
+
+as_qdr=x
+
+Swap out x for the following to limit the search to only files first indexed in:
+
+d - the previous 24 hours
+w - the previous seven days
+m - the previous month
+y - past year
+mn - the previous n number of months. So m2 would be the previous two, m3 would be three, and so on. Does work into double digits
+as_rights=xxx
+
+Limits the search to files/pages that have certain rights. The options are:
+
+(cc_publicdomain|cc_attribute|cc_sharealike|cc_noncommercial|cc_nonderived) - free to use or share
+(cc_publicdomain|cc_attribute|cc_sharealike|cc_nonderived).-(cc_noncommercial) - free to use or share, including commercially
+(cc_publicdomain|cc_attribute|cc_sharealike|cc_noncommercial).-(cc_nonderived) - free to use, share, or modify
+(cc_publicdomain|cc_attribute|cc_sharealike).-(cc_noncommercial|cc_nonderived) - free to use, share, or modify commercially
+If you want to make up your own, put the bits you want in brackets, separated by pipe characters (|), and exclude the bits you don't by putting them in brackets, preceded by .- and again pipe-separated.
+
+allintitle%3Asearch+terms
+
+This is actually appended to the q= parameter, hence a search for fishing with the allintitle term "sea bass" would require the following query:
+
+q=fishing+allintitle%3Asea+bass
+
+Shows as allintitle:search terms
+
+N.B. This also works with allintext to search page body text, allinurl for searching the URL, and allinanchor for finding sites that are linked to with certain anchor text.
+
+nnn..yyyy
+
+Like the allin parameters, this is actually appended to the q= parameter. What this does though is let you search for results between numeric ranges. For example, if you wanted to find documents with numbers between 15 and 100, you'd put in 15..100. Very useful for finding products in a price range, when combined with the site limiter. Works with $, £, and other such things.
+
+Shows as query 15..100
+
+%2Bterm
+
+Again, this is appended to the q= parameter. The %2B is actually the + sign encoded, and will return results featuring only the term used, with no pluralisations, alternate tenses, or synonyms.
+
+Shows as +term
+
+~term
+
+Another one that's appended to the q= parameter. Returns results for the term used and synonyms.
+
+Shows as ~term
+
+define%3Aword
+
+Yet another q= parameter add-on. Returns definitions for the word you put in.
+
+Shows as define:word
+
+term * term two
+
+And another q= parameter add-on. Returns results with listings that contain both words, with other words between them.
+
+n+n2, n-n2, n/n2, n*n2, n^n2 and n% of n2
+
+Google's calculator functions. They are, in order, add, subtract, divide, multiply, raise to the power of, and return x percentage of.
+
+safe=active
+
+Sets safe search to on. To turn it off, change active to images.
+
+as_rq=Example Domain
+
+Finds sites Google thinks are related to the URL you put in.
+
+Shows as query related:example.com
+
+as_lq=Example Domain
+
+Finds sites that link to the URL you put in.
+
+Shows as query link:example.com
+
+newwindow=n
+
+Opens clicked listings in a new window. Very useful for opening lots of documents at a time, for competitor research. Set to 1 to activate, and 0 to turn it off.
+
+pws
+
+Controls whether personalised search is on or not. Set to 1 to activate, and 0 to turn it off.
+
+adtest=on
+
+Turns off AdWords database connection, so your browsing won't show up as an impression, and will disable the URLs. Set to on to activate, and off to turn it off.
+
+btnG=Search
+
+Simulates a click on the normal Google results buttpm. Change to btnI to get the I'm Feeling Lucky button result.
+
+ie=
+
+Controls the input encoding settings. This defaults to UTF-8, and is worked out server-side, hence changing it doesn't do anything.
+
+oe=
+
+Controls the output encoding settings. Works in the same way as ie, so you can tinker away, but it won't do anything.
+
+&hl=value
+
+Changes the interface language. I won't list them all here, but you can find them all here.
+
+lr=value
+
+Limits the languages used to return results. Not hugely effective. That said, here's the list of all of them:
+
+lang_ar - Arabic
+lang_hy - Armenian
+lang_be - Belarusian
+lang_bg - Bulgarian
+lang_ca - Catalan
+lang_hr - Croatian
+lang_cs - Czech
+lang_da - Danish
+lang_nl - Dutch
+lang_en - English
+lang_eo - Esperanto
+lang_et - Estonian
+lang_tl - Filipino
+lang_fi - Finnish
+lang_fr - French
+lang_de - German
+lang_el - Greek
+lang_iw - Hebrew
+lang_hu - Hungarian
+lang_is - Icelandic
+lang_id - Indonesian
+lang_it - Italian
+lang_ja - Japanese
+lang_ko - Korean
+lang_lv - Latvian
+lang_lt - Lithuanian
+lang_no - Norwegian
+lang_fa - Persian
+lang_pl - Polish
+lang_pt - Portuguese
+lang_ro - Romanian
+lang_ru - Russian
+lang_sr - Serbian
+lang_sk - Slovak
+lang_sl - Slovenian
+lang_es - Spanish
+lang_sv - Swedish
+lang_th - Thai
+lang_tr - Turkish
+lang_uk - Ukrainian
+lang_vi - Vietnamese
+lang_zh-CN - Chinese Simplified
+lang_zh-TW - Chinese Traditional
+cr=countryXX
+
+Limits the search results to pages/sites from certain locations. Change XX to any of the following, to limit the results:
+
+AF - Afghanistan
+AL - Albania
+DZ - Algeria
+AS - American Samoa
+AD - Andorra
+AO - Angola
+AI - Anguilla
+AQ - Antarctica
+AG - Antigua and Barbuda
+AR - Argentina
+AM - Armenia
+AW - Aruba
+AU - Australia
+AT - Austria
+AZ - Azerbaijan
+BS - Bahamas
+BH - Bahrain
+BD - Bangladesh
+BB - Barbados
+BY - Belarus
+BE - Belgium
+BZ - Belize
+BJ - Benin
+BM - Bermuda
+BT - Bhutan
+BO - Bolivia
+BA - Bosnia and Herzegovina
+BW - Botswana
+BV - Bouvet Island
+BR - Brazil
+IO - British Indian Ocean Territory
+BN - Brunei Darussalam
+BG - Bulgaria
+BF - Burkina Faso
+BI - Burundi
+KH - Cambodia
+CM - Cameroon
+CA - Canada
+CV - Cape Verde
+KY - Cayman Islands
+CF - Central African Republic
+TD - Chad
+CL - Chile
+CN - China
+CX - Christmas Island
+CC - Cocos (Keeling) Islands
+CO - Colombia
+KM - Comoros
+CG - Congo
+CD - Congo, Democratic Republic
+CK - Cook Islands
+CR - Costa Rica
+CI - Cote d'Ivoire
+HR - Croatia
+CY - Cyprus
+CZ - Czech Republic
+DK - Denmark
+DJ - Djibouti
+DM - Dominica
+DO - Dominican Republic
+TL - East Timor
+EC - Ecuador
+EG - Egypt
+SV - El Salvador
+GQ - Equatorial Guinea
+ER - Eritrea
+EE - Estonia
+ET - Ethiopia
+FK - Falkland Islands (Malvinas)
+FO - Faroe Islands
+FJ - Fiji
+FI - Finland
+FR - France
+GF - French Guiana
+PF - French Polynesia
+TF - French Southern Territories
+GA - Gabon
+GM - Gambia
+GE - Georgia
+DE - Germany
+GH - Ghana
+GI - Gibraltar
+GR - Greece
+GL - Greenland
+GD - Grenada
+GP - Guadeloupe
+GU - Guam
+GT - Guatemala
+GN - Guinea
+GW - Guinea-Bissau
+GY - Guyana
+HT - Haiti
+HM - Heard and McDonald Islands
+HN - Honduras
+HK - Hong Kong
+HU - Hungary
+IS - Iceland
+IN - India
+ID - Indonesia
+IQ - Iraq
+IE - Ireland
+IL - Israel
+IT - Italy
+JM - Jamaica
+JP - Japan
+JO - Jordan
+KZ - Kazakhstan
+KE - Kenya
+KI - Kiribati
+KW - Kuwait
+KG - Kyrgyzstan
+LA - Lao People's Democratic Republic
+LV - Latvia
+LB - Lebanon
+LS - Lesotho
+LR - Liberia
+LY - Libya
+LI - Liechtenstein
+LT - Lithuania
+LU - Luxembourg
+MO - Macau
+MK - Macedonia
+MG - Madagascar
+MW - Malawi
+MY - Malaysia
+MV - Maldives
+ML - Mali
+MT - Malta
+MH - Marshall Islands
+MQ - Martinique
+MR - Mauritania
+MU - Mauritius
+YT - Mayotte
+MX - Mexico
+FM - Micronesia
+MD - Moldova
+MC - Monaco
+MN - Mongolia
+MS - Montserrat
+MA - Morocco
+MZ - Mozambique
+NA - Namibia
+NR - Nauru
+NP - Nepal
+NL - Netherlands
+AN - Netherlands Antilles
+NC - New Caledonia
+NZ - New Zealand
+NI - Nicaragua
+NE - Niger
+NG - Nigeria
+NU - Niue
+NF - Norfolk Island
+MP - Northern Maria
+a Islands
+NO - Norway
+OM - Oman
+PK - Pakistan
+PW - Palau
+PS - Palestinian Territory
+PA - Panama
+PG - Papua New Guinea
+PY - Paraguay
+PE - Peru
+PH - Philippines
+PN - Pitcairn
+PL - Poland
+PT - Portugal
+PR - Puerto Rico
+QA - Qatar
+RE - Reunion
+RO - Romania
+RU - Russian Federation
+RW - Rwanda
+KN - Saint Kitts and Nevis
+LC - Saint Lucia
+VC - Saint Vincent and the Grenadines
+WS - Samoa
+SM - San Marino
+ST - Sao Tome and Principe
+SA - Saudi Arabia
+SN - Senegal
+CS - Serbia and Montenegro
+SC - Seychelles
+SL - Sierra Leone
+SG - Singapore
+SK - Slovakia
+SI - Slovenia
+SB - Solomon Islands
+SO - Somalia
+ZA - South Africa
+GS - South Georgia and The South Sandwich Islands
+KR - South Korea
+ES - Spain
+LK - Sri Lanka
+SH - St. Helena
+PM - St. Pierre and Miquelon
+SR - Suriname
+SJ - Svalbard and Jan Mayen Islands
+SZ - Swaziland
+SE - Sweden
+CH - Switzerland
+TW - Taiwan
+TJ - Tajikistan
+TZ - Tanzania
+TH - Thailand
+TG - Togo
+TK - Tokelau
+TO - Tonga
+TT - Trinidad and Tobago
+TN - Tunisia
+TR - Turkey
+TM - Turkmenistan
+TC - Turks and Caicos Islands
+TV - Tuvalu
+UG - Uganda
+UA - Ukraine
+AE - United Arab Emirates
+GB - United Kingdom
+US - United States
+UM - United States Minor Outlying Islands
+UY - Uruguay
+UZ - Uzbekistan
+VU - Vanuatu
+VA - Vatican
+VE - Venezuela
+VN - Viet Nam
+VG - Virgin Islands (British)
+VI - Virgin Islands (U.S.)
+WF - Wallis and Futuna Islands
+EH - Western Sahara
+YE - Yemen
+ZM - Zambia
+ZW - Zimbabwe
+If you can think of anything I've missed, please add it
+
 ## ngx\_http\_proxy\_connect\_module
 
 Nginx is can be configured for forwarding proxying. 
@@ -23,6 +457,8 @@ to that topic. Luckily there is a solution for that problem.
 The [ngx\_http\_proxy\_connect\_module](https://github.com/chobits/ngx_http_proxy_connect_module)
 is solving this issue. If Nginx is compiled with that module, 
 the proxying will work with SSL connections as well. 
+
+*For the specific case, we will only  entertain the q=search term.* 
 
 ## Docker Build
 
@@ -40,6 +476,11 @@ Or simply download it from [Docker Hub](https://hub.docker.com/r/reiz/nginx_prox
 ```
 docker pull reiz/nginx_proxy:latest
 ```
+*Currently, the docker base image is ubuntu 16.04. It is still going to  come with all the package you do not necessary need it. Personally, I agree with Alpine linux model with the very bare bone approach, you will worry less about updates and unnecessary packages that you will never need. For that sense, you will worry less for your security too. Additionally, the build should be in the continous build, so when code changes, it will build automatically to catch any issue. The image should be pushed to a docker repository along the process. A shell script for that purpose should be created.*
+
+  ## ToDo
+  * Use Alpine linux base image
+  * Use APK to install packages. 
 
 ## Whitelist certain domains
 
