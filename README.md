@@ -15,7 +15,7 @@ The Docker daemon can be configured that way that it routes all traffic through 
 
 ## Google search query
 
-q=query+goes+here
+**q=query+goes+here
 
 The query string. Words are separated by + signs.
 
@@ -445,7 +445,7 @@ EH - Western Sahara
 YE - Yemen
 ZM - Zambia
 ZW - Zimbabwe
-If you can think of anything I've missed, please add it
+If you can think of anything I've missed, please add it**
 
 ## ngx\_http\_proxy\_connect\_module
 
@@ -476,11 +476,11 @@ Or simply download it from [Docker Hub](https://hub.docker.com/r/reiz/nginx_prox
 ```
 docker pull reiz/nginx_proxy:latest
 ```
-*Currently, the docker base image is ubuntu 16.04. It is still going to  come with all the package you do not necessary need it. Personally, I agree with Alpine linux model with the very bare bone approach, you will worry less about updates and unnecessary packages that you will never need. For that sense, you will worry less for your security too. Additionally, the build should be in the continous build, so when code changes, it will build automatically to catch any issue. The image should be pushed to a docker repository along the process. A shell script for that purpose should be created.*
+**Currently, the docker base image is ubuntu 16.04. It is still going to  come with all the package you do not necessary need it. Personally, I agree with Alpine linux model with the very bare bone approach, you will worry less about updates and unnecessary packages that you will never need. For that sense, you will worry less for your security too. Additionally, the build should be in the continous build, so when code changes, it will build automatically to catch any issue. The image should be pushed to a docker repository along the process. A shell script for that purpose should be created.**
 
   ## ToDo
-  * Use Alpine linux base image
-  * Use APK to install packages. 
+  ** Use Alpine linux base image
+  ** Use APK to install packages. 
 
 ## Whitelist certain domains
 
